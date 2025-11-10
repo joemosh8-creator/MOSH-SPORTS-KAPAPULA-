@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOSH SPORTS KAPAPULA</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+        header h1 {
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 8px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #333;
+            position: relative;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            font-weight: bold;
+            padding: 14px 10px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #1e90ff;
+            border-radius: 5px;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #333;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .welcome p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Tip of the Day */
+        .tip-of-the-day {
+            background-color: #ffefc1;
+            border-left: 5px solid #1e90ff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .tip-of-the-day h3 {
+            color: #ff4500;
+            margin-bottom: 10px;
+        }
+        .tip-of-the-day p {
+            margin: 5px 0;
+        }
+
+        /* Tips Section */
+        .tips-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .tips-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .tip-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .tip-card:hover {
+            transform: scale(1.05);
+        }
+        .tip-card h3 {
+            color: #1e90ff;
+            margin-bottom: 10px;
+        }
+        .tip-card p {
+            margin: 6px 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #e6f0ff;
+        }
+        .contact-section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .contact-form button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #0073e6;
+        }
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px 0 15px 0;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⚽ MOSH SPORTS KAPAPULA</h1>
+    <p>Your trusted source for real betting predictions!</p>
+</header>
+
+<nav>
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul id="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Predictions</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="welcome">
+    <h2>Welcome!</h2>
+    <p>Here you’ll find the latest football match predictions, accurate tips, and guidance for your betting knowledge.</p>
+</section>
+
+<section class="tips-section">
+    <h2>Today's Predictions</h2>
+
+    <!-- Tip of the Day Banner -->
+    <div class="tip-of-the-day">
+        <h3>🔥 Tip of the Day 🔥</h3>
+        <p><strong>Match:</strong> Manchester United vs Chelsea</p>
+        <p><strong>Prediction:</strong> Manchester United to win</p>
+        <p><strong>Confidence:</strong> High</p>
+        <p><strong>Odds:</strong> 2.1</p>
+    </div>
+
+    <div class="tips-container">
+        <div class="tip-card">
+            <h3>Liverpool vs Arsenal</h3>
+            <p><strong>Prediction:</strong> Both teams to score</p>
+            <p><strong>Confidence:</strong> Medium</p>
+            <p><strong>Odds:</strong> 1.8</p>
+        </div>
+        <div class="tip-card">
+            <h3>Barcelona vs Real Madrid</h3>
+            <p><strong>Prediction:</strong> Draw</p>
+            <p><strong>Confidence:</strong> Medium</p>
+            <p><strong>Odds:</strong> 3.2</p>
+        </div>
+        <div class="tip-card">
+            <h3>Bayern Munich vs Dortmund</h3>
+            <p><strong>Prediction:</strong> Bayern Munich to win</p>
+            <p><strong>Confidence:</strong> High</p>
+            <p><strong>Odds:</strong> 1.7</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New message from MOSH SPORTS KAPAPULA website">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+    <div class="success-message" id="successMessage">Thank you! Your message has been sent.</div>
+</section>
+
+<footer>
+    &copy; 2025 MOSH SPORTS KAPAPULA. All rights reserved.
+    <div class="social-links">
+        <a href="https://wa.me/YOUR_NUMBER" target="_blank" title="WhatsApp">📱</a>
+        <a href="https://facebook.com/YOUR_PROFILE" target="_blank" title="Facebook">📘</a>
+        <a href="https://twitter.com/YOUR_PROFILE" target="_blank" title="Twitter">🐦</a>
+    </div>
+</footer>
+
+<script>
+    // AJAX contact form
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {'Accept': 'application/json'}
+        })
+        .then(response => {
+            if(response.ok){
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            } else {
+                alert('Oops! There was a problem submitting your form.');
+            }
+        })
+        .catch(error => alert('Oops! There was a problem submitting your form.'));
+    });
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
